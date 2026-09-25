@@ -50,4 +50,29 @@
     <string name="site_placeholder">Ej.: Obra Av. Siempreviva 742 — Subsuelo 2</string>
     <string name="site_error">Ingresá el sitio</string>
     <string name="start_inspection">Empezar inspección</string>
+
+    <!-- Resultado de un ítem -->
+    <string name="status_complies">Cumple</string>
+    <string name="status_not_complies">No cumple</string>
+    <string name="status_not_applicable">N/A</string>
+    <string name="status_pending">Sin completar</string>
+
+    <!-- P3 · Ejecución -->
+    <string name="execution_see_all">Ver todos los ítems</string>
+    <string name="execution_item_position">Ítem %1$d de %2$d</string>
+    <string name="execution_progress_description">%1$d de %2$d ítems completados</string>
+    <string name="execution_saved">Guardado</string>
+    <string name="execution_note_label">Nota (opcional)</string>
+    <string name="execution_needs_evidence">Agregá una nota o una foto como evidencia.</string>
+    <string name="execution_add_photo">Agregar foto</string>
+    <string name="execution_photo_not_available">La cámara se suma en la próxima etapa.</string>
+    <string name="execution_previous">Anterior</string>
+    <string name="execution_next">Siguiente</string>
+    <string name="execution_review">Revisar y finalizar</string>
+    <string name="execution_loading">Abriendo la inspección…</string>
+    <string name="inspection_not_found">No encontramos esta inspección.</string>
+    <string name="inspection_not_found_title">No existe</string>
+    <string name="inspection_error_title">No se pudo abrir</string>
+    <string name="inspection_error_message">No pudimos leer la inspección guardada.</string>
+    <string name="action_go_home">Volver al inicio</string>
 </resources>
