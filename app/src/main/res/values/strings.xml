@@ -1,3 +1,98 @@
 <resources>
     <string name="app_name">FieldCheck</string>
+
+    <!-- Acciones comunes -->
+    <string name="action_retry">Reintentar</string>
+    <string name="action_back">Volver</string>
+
+    <!-- Estados compartidos -->
+    <string name="offline_banner">Sin conexión. Tus cambios se guardan en el teléfono.</string>
+    <string name="loading">Cargando…</string>
+
+    <!-- Estado de sincronización -->
+    <string name="sync_pending">Pendiente</string>
+    <string name="sync_synced">Sincronizada</string>
+    <string name="sync_failed">Error</string>
+
+    <!-- P1 · Historial -->
+    <string name="history_new_inspection">Nueva inspección</string>
+    <string name="history_section_in_progress">En curso</string>
+    <string name="history_section_finished">Finalizadas</string>
+    <string name="history_progress">%1$d de %2$d ítems</string>
+    <string name="history_loading">Cargando inspecciones</string>
+    <string name="history_empty_title">Todavía no hay inspecciones</string>
+    <string name="history_empty_message">Creá la primera con el botón de abajo.</string>
+    <string name="history_error_title">No se pudo cargar el historial</string>
+    <string name="history_error_message">No pudimos leer las inspecciones guardadas.</string>
+
+    <!-- P2 · Nueva inspección -->
+    <string name="new_inspection_title">Nueva inspección</string>
+    <string name="templates_downloading">Descargando plantillas…</string>
+    <string name="templates_updated_today">Plantillas actualizadas hoy, %1$s</string>
+    <plurals name="templates_updated_days_ago">
+        <item quantity="one">Plantillas actualizadas hace %d día</item>
+        <item quantity="other">Plantillas actualizadas hace %d días</item>
+    </plurals>
+    <string name="templates_stale_offline">Se van a actualizar cuando haya conexión.</string>
+    <plurals name="template_item_count">
+        <item quantity="one">%d ítem</item>
+        <item quantity="other">%d ítems</item>
+    </plurals>
+    <string name="template_version">versión %1$d</string>
+    <string name="templates_empty_offline_title">Necesitás conexión la primera vez</string>
+    <string name="templates_empty_offline_message">Las plantillas se descargan una sola vez y después funcionan sin señal.</string>
+    <string name="templates_empty_title">No hay plantillas disponibles</string>
+    <string name="templates_empty_message">Pedile al responsable que cargue una plantilla.</string>
+    <string name="templates_error_title">No se pudieron descargar</string>
+    <string name="templates_error_message">No pudimos descargar las plantillas. Probá de nuevo en unos minutos.</string>
+    <string name="templates_refresh_failed">No se pudieron actualizar las plantillas. Usás las guardadas.</string>
+    <string name="site_label">Sitio</string>
+    <string name="site_placeholder">Ej.: Obra Av. Siempreviva 742 — Subsuelo 2</string>
+    <string name="site_error">Ingresá el sitio</string>
+    <string name="start_inspection">Empezar inspección</string>
+
+    <!-- Resultado de un ítem -->
+    <string name="status_complies">Cumple</string>
+    <string name="status_not_complies">No cumple</string>
+    <string name="status_not_applicable">N/A</string>
+    <string name="status_pending">Sin completar</string>
+
+    <!-- P3 · Ejecución -->
+    <string name="execution_see_all">Ver todos los ítems</string>
+    <string name="execution_item_position">Ítem %1$d de %2$d</string>
+    <string name="execution_progress_description">%1$d de %2$d ítems completados</string>
+    <string name="execution_saved">Guardado</string>
+    <string name="execution_note_label">Nota (opcional)</string>
+    <string name="execution_needs_evidence">Agregá una nota o una foto como evidencia.</string>
+    <string name="execution_add_photo">Agregar foto</string>
+    <string name="execution_photo_not_available">La cámara se suma en la próxima etapa.</string>
+    <string name="execution_previous">Anterior</string>
+    <string name="execution_next">Siguiente</string>
+    <string name="execution_review">Revisar y finalizar</string>
+    <string name="execution_loading">Abriendo la inspección…</string>
+    <string name="inspection_not_found">No encontramos esta inspección.</string>
+    <string name="inspection_not_found_title">No existe</string>
+    <string name="inspection_error_title">No se pudo abrir</string>
+    <string name="inspection_error_message">No pudimos leer la inspección guardada.</string>
+    <string name="action_go_home">Volver al inicio</string>
+
+    <!-- P4 · Revisión -->
+    <string name="review_title">Revisión</string>
+    <string name="review_finish">Finalizar inspección</string>
+    <plurals name="review_missing">
+        <item quantity="one">Falta %d ítem para poder finalizar</item>
+        <item quantity="other">Faltan %d ítems para poder finalizar</item>
+    </plurals>
+    <string name="review_missing_hint">Tocá uno para completarlo.</string>
+    <string name="review_reason_evidence">No cumple sin evidencia</string>
+    <string name="review_item_number">%1$d.</string>
+    <string name="review_has_photos">Tiene fotos</string>
+    <string name="review_needs_attention">Requiere atención</string>
+    <string name="review_confirm_title">¿Finalizar la inspección?</string>
+    <string name="review_confirm_message">Después no se va a poder editar.</string>
+    <string name="review_confirm_ok">Finalizar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="review_finished_offline">Inspección finalizada. Se va a subir cuando haya conexión.</string>
+    <string name="review_finished_online">Inspección finalizada. Subiendo…</string>
+    <string name="status_count">%1$s %2$d</string>
 </resources>
