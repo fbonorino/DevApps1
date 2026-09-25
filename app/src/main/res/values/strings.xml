@@ -13,4 +13,15 @@
     <string name="sync_pending">Pendiente</string>
     <string name="sync_synced">Sincronizada</string>
     <string name="sync_failed">Error</string>
+
+    <!-- P1 · Historial -->
+    <string name="history_new_inspection">Nueva inspección</string>
+    <string name="history_section_in_progress">En curso</string>
+    <string name="history_section_finished">Finalizadas</string>
+    <string name="history_progress">%1$d de %2$d ítems</string>
+    <string name="history_loading">Cargando inspecciones</string>
+    <string name="history_empty_title">Todavía no hay inspecciones</string>
+    <string name="history_empty_message">Creá la primera con el botón de abajo.</string>
+    <string name="history_error_title">No se pudo cargar el historial</string>
+    <string name="history_error_message">No pudimos leer las inspecciones guardadas.</string>
 </resources>
