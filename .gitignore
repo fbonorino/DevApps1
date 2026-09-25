@@ -1,0 +1,44 @@
+# --- Android / Gradle ---
+.gradle/
+.kotlin/
+build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+output-metadata.json
+
+# Firmas (nunca al repo)
+*.jks
+*.keystore
+keystore.properties
+
+# --- IDEs ---
+.idea/
+*.iml
+.vscode/
+.fleet/
+*.swp
+.DS_Store
+Thumbs.db
+
+# --- Python (backend) ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Datos locales del backend (base SQLite y fotos recibidas)
+backend/data/
+*.sqlite3
+*.db
