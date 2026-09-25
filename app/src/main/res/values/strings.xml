@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">FieldCheck</string>
+
+    <!-- Acciones comunes -->
+    <string name="action_retry">Reintentar</string>
+    <string name="action_back">Volver</string>
+
+    <!-- Estados compartidos -->
+    <string name="offline_banner">Sin conexión. Tus cambios se guardan en el teléfono.</string>
+    <string name="loading">Cargando…</string>
+
+    <!-- Estado de sincronización -->
+    <string name="sync_pending">Pendiente</string>
+    <string name="sync_synced">Sincronizada</string>
+    <string name="sync_failed">Error</string>
 </resources>
