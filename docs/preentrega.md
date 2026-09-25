@@ -198,9 +198,9 @@ La especificación detallada de cada pantalla (componentes, jerarquía, acciones
 
 | # | Pantalla | Objetivo | Estados que se diseñan |
 |---|---|---|---|
-| P1 | Historial (inicio) | Ver inspecciones y su estado de sincronización; punto de entrada a crear una nueva. | Carga, contenido, vacío, offline. |
+| P1 | Historial (inicio) | Ver inspecciones y su estado de sincronización; punto de entrada a crear una nueva. | Carga, contenido, vacío, error, offline. |
 | P2 | Nueva inspección | Elegir plantilla e ingresar el sitio. | Carga, contenido, contenido desactualizado, vacío sin conexión, error. |
-| P3 | Ejecución de inspección | Completar ítem por ítem con estado, nota y foto. | Contenido, foto guardada, permiso de ubicación rechazado. |
+| P3 | Ejecución de inspección | Completar ítem por ítem con estado, nota y foto. | Carga, contenido, offline, "No cumple" sin evidencia, permiso de ubicación rechazado, errores de cámara. |
 | P4 | Revisión y finalización | Ver el resumen, detectar faltantes y finalizar. | Contenido, validación con faltantes. |
 | P5 | Detalle de inspección | Consultar una inspección y compartir su resumen. | Contenido, pendiente, sincronizada, error de sincronización. |
 
