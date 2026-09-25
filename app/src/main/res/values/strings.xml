@@ -24,4 +24,30 @@
     <string name="history_empty_message">Creá la primera con el botón de abajo.</string>
     <string name="history_error_title">No se pudo cargar el historial</string>
     <string name="history_error_message">No pudimos leer las inspecciones guardadas.</string>
+
+    <!-- P2 · Nueva inspección -->
+    <string name="new_inspection_title">Nueva inspección</string>
+    <string name="templates_downloading">Descargando plantillas…</string>
+    <string name="templates_updated_today">Plantillas actualizadas hoy, %1$s</string>
+    <plurals name="templates_updated_days_ago">
+        <item quantity="one">Plantillas actualizadas hace %d día</item>
+        <item quantity="other">Plantillas actualizadas hace %d días</item>
+    </plurals>
+    <string name="templates_stale_offline">Se van a actualizar cuando haya conexión.</string>
+    <plurals name="template_item_count">
+        <item quantity="one">%d ítem</item>
+        <item quantity="other">%d ítems</item>
+    </plurals>
+    <string name="template_version">versión %1$d</string>
+    <string name="templates_empty_offline_title">Necesitás conexión la primera vez</string>
+    <string name="templates_empty_offline_message">Las plantillas se descargan una sola vez y después funcionan sin señal.</string>
+    <string name="templates_empty_title">No hay plantillas disponibles</string>
+    <string name="templates_empty_message">Pedile al responsable que cargue una plantilla.</string>
+    <string name="templates_error_title">No se pudieron descargar</string>
+    <string name="templates_error_message">No pudimos descargar las plantillas. Probá de nuevo en unos minutos.</string>
+    <string name="templates_refresh_failed">No se pudieron actualizar las plantillas. Usás las guardadas.</string>
+    <string name="site_label">Sitio</string>
+    <string name="site_placeholder">Ej.: Obra Av. Siempreviva 742 — Subsuelo 2</string>
+    <string name="site_error">Ingresá el sitio</string>
+    <string name="start_inspection">Empezar inspección</string>
 </resources>

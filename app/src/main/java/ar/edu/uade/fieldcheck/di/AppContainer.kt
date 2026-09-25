@@ -7,6 +7,7 @@ import ar.edu.uade.fieldcheck.data.repository.FakeTemplateRepository
 import ar.edu.uade.fieldcheck.domain.repository.InspectionRepository
 import ar.edu.uade.fieldcheck.domain.repository.NetworkMonitor
 import ar.edu.uade.fieldcheck.domain.repository.TemplateRepository
+import ar.edu.uade.fieldcheck.domain.usecase.CreateInspectionUseCase
 
 // Inyección manual: acá se crean las dependencias una sola vez y los ViewModels las reciben
 class AppContainer {
@@ -18,4 +19,7 @@ class AppContainer {
     val networkMonitor: NetworkMonitor = FakeNetworkMonitor(fakeOnline)
     val inspectionRepository: InspectionRepository = FakeInspectionRepository(fakeScenario)
     val templateRepository: TemplateRepository = FakeTemplateRepository(fakeScenario, fakeOnline)
+
+    // Casos de uso: solo donde hay una regla de negocio
+    val createInspection = CreateInspectionUseCase(inspectionRepository)
 }
