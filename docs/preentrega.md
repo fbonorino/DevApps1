@@ -4,7 +4,7 @@
 **Instancia:** Etapa 1 — Preentrega de análisis y diseño
 **Equipo:** [COMPLETAR: integrantes]
 **Fecha de entrega:** [COMPLETAR]
-**Repositorio:** [COMPLETAR: URL de GitHub]
+**Repositorio:** https://github.com/fbonorino/DevApps1
 **Figma:** [COMPLETAR: link al archivo]
 
 > Estructura: este documento sigue uno por uno los 17 entregables mínimos de la sección 5 de la consigna. La persistencia (punto 4.12 de la consigna, que no figura como entregable separado) se desarrolla dentro del punto 14.
@@ -309,7 +309,7 @@ Para cada decisión relevante se indica qué problema resuelve, en qué capa viv
 
 ## 16. Repositorio
 
-- **URL:** [COMPLETAR una vez creado el repositorio remoto]
+- **URL:** https://github.com/fbonorino/DevApps1 (privado; acceso para integrantes y docente)
 - **Integrantes con acceso:** [COMPLETAR] + docente de la cátedra.
 
 **Estrategia de trabajo**

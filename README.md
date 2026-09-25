@@ -29,7 +29,7 @@ Detalle completo en [`docs/preentrega.md`](docs/preentrega.md).
 
 Requisitos: Android Studio (versión estable reciente), JDK 17 o superior, Android SDK con la plataforma 37.
 
-1. Clonar el repositorio y abrir la carpeta raíz en Android Studio.
+1. Clonar el repositorio (`git clone https://github.com/fbonorino/DevApps1.git`) y abrir la carpeta raíz en Android Studio.
 2. Dejar que Gradle sincronice (el wrapper descarga Gradle 9.8.0).
 3. Ejecutar la configuración `app` en un emulador o dispositivo con Android 8.0 (API 26) o superior.
 
