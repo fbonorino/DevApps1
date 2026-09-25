@@ -12,3 +12,6 @@ object NewInspectionRoute
 // itemId opcional: si viene de la revisión abre ese ítem; si no, el primero sin completar
 @Serializable
 data class ExecutionRoute(val inspectionId: String, val itemId: Long? = null)
+
+@Serializable
+data class ReviewRoute(val inspectionId: String)

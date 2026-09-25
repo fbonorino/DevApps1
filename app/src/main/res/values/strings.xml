@@ -75,4 +75,24 @@
     <string name="inspection_error_title">No se pudo abrir</string>
     <string name="inspection_error_message">No pudimos leer la inspección guardada.</string>
     <string name="action_go_home">Volver al inicio</string>
+
+    <!-- P4 · Revisión -->
+    <string name="review_title">Revisión</string>
+    <string name="review_finish">Finalizar inspección</string>
+    <plurals name="review_missing">
+        <item quantity="one">Falta %d ítem para poder finalizar</item>
+        <item quantity="other">Faltan %d ítems para poder finalizar</item>
+    </plurals>
+    <string name="review_missing_hint">Tocá uno para completarlo.</string>
+    <string name="review_reason_evidence">No cumple sin evidencia</string>
+    <string name="review_item_number">%1$d.</string>
+    <string name="review_has_photos">Tiene fotos</string>
+    <string name="review_needs_attention">Requiere atención</string>
+    <string name="review_confirm_title">¿Finalizar la inspección?</string>
+    <string name="review_confirm_message">Después no se va a poder editar.</string>
+    <string name="review_confirm_ok">Finalizar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="review_finished_offline">Inspección finalizada. Se va a subir cuando haya conexión.</string>
+    <string name="review_finished_online">Inspección finalizada. Subiendo…</string>
+    <string name="status_count">%1$s %2$d</string>
 </resources>

@@ -25,6 +25,9 @@ import ar.edu.uade.fieldcheck.presentation.history.HistoryViewModel
 import ar.edu.uade.fieldcheck.presentation.newinspection.NewInspectionEvent
 import ar.edu.uade.fieldcheck.presentation.newinspection.NewInspectionScreen
 import ar.edu.uade.fieldcheck.presentation.newinspection.NewInspectionViewModel
+import ar.edu.uade.fieldcheck.presentation.review.ReviewEvent
+import ar.edu.uade.fieldcheck.presentation.review.ReviewScreen
+import ar.edu.uade.fieldcheck.presentation.review.ReviewViewModel
 import kotlinx.coroutines.launch
 
 // Flujo principal de docs/diagramas.md (diagrama 1). Cada destino crea su ViewModel,
@@ -32,6 +35,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun FieldCheckNavHost(container: AppContainer) {
     val navController = rememberNavController()
+    // Snackbar del historial: lo usan otras pantallas para avisar algo al volver a P1
+    val historySnackbarHostState = remember { SnackbarHostState() }
+    val appScope = rememberCoroutineScope()
 
     NavHost(navController = navController, startDestination = HistoryRoute) {
 
@@ -50,6 +56,7 @@ fun FieldCheckNavHost(container: AppContainer) {
                     // TODO P5: las finalizadas van al detalle
                 },
                 onRetry = viewModel::retry,
+                snackbarHostState = historySnackbarHostState,
             )
         }
 
@@ -98,7 +105,7 @@ fun FieldCheckNavHost(container: AppContainer) {
                 uiState = uiState,
                 isOffline = isOffline,
                 onBack = { navController.popBackStack() },
-                onSeeAll = { /* TODO P4: revisión */ },
+                onSeeAll = { navController.navigate(ReviewRoute(route.inspectionId)) },
                 onStatusSelected = { status ->
                     // Vibración corta como confirmación sin mirar la pantalla
                     haptic.performHapticFeedback(HapticFeedbackType.Confirm)
@@ -110,6 +117,46 @@ fun FieldCheckNavHost(container: AppContainer) {
                 onNext = viewModel::onNext,
                 onRetry = viewModel::retry,
                 snackbarHostState = snackbarHostState,
+            )
+        }
+
+        composable<ReviewRoute> { entry ->
+            val route = entry.toRoute<ReviewRoute>()
+            val viewModel: ReviewViewModel = viewModel(factory = ReviewViewModel.factory(container, route.inspectionId))
+            val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+            val isOffline by viewModel.isOffline.collectAsStateWithLifecycle()
+            val finishedOffline = stringResource(R.string.review_finished_offline)
+            val finishedOnline = stringResource(R.string.review_finished_online)
+
+            LaunchedEffect(Unit) {
+                viewModel.events.collect { event ->
+                    when (event) {
+                        is ReviewEvent.Finished -> {
+                            navController.popBackStack(HistoryRoute, inclusive = false)
+                            // Se muestra en P1; el scope es del NavHost porque esta pantalla ya se cerró
+                            appScope.launch {
+                                historySnackbarHostState.showSnackbar(if (event.wasOffline) finishedOffline else finishedOnline)
+                            }
+                        }
+                    }
+                }
+            }
+
+            ReviewScreen(
+                uiState = uiState,
+                isOffline = isOffline,
+                onBack = { navController.popBackStack() },
+                onItemClick = { item ->
+                    // Vuelve a P3 en ese ítem. Se reemplaza la P3 anterior para que "atrás" siga yendo a P1.
+                    navController.navigate(ExecutionRoute(route.inspectionId, item.id)) {
+                        popUpTo<ExecutionRoute> { inclusive = true }
+                    }
+                },
+                onFinishClick = viewModel::onFinishClick,
+                onConfirmFinish = viewModel::onConfirmFinish,
+                onDismissDialog = viewModel::onDismissDialog,
+                onRetry = viewModel::retry,
+                onGoHome = { navController.popBackStack(HistoryRoute, inclusive = false) },
             )
         }
     }

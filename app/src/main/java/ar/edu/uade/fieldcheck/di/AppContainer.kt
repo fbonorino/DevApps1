@@ -8,6 +8,7 @@ import ar.edu.uade.fieldcheck.domain.repository.InspectionRepository
 import ar.edu.uade.fieldcheck.domain.repository.NetworkMonitor
 import ar.edu.uade.fieldcheck.domain.repository.TemplateRepository
 import ar.edu.uade.fieldcheck.domain.usecase.CreateInspectionUseCase
+import ar.edu.uade.fieldcheck.domain.usecase.FinalizeInspectionUseCase
 
 // Inyección manual: acá se crean las dependencias una sola vez y los ViewModels las reciben
 class AppContainer {
@@ -22,4 +23,5 @@ class AppContainer {
 
     // Casos de uso: solo donde hay una regla de negocio
     val createInspection = CreateInspectionUseCase(inspectionRepository)
+    val finalizeInspection = FinalizeInspectionUseCase(inspectionRepository)
 }
