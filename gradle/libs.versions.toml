@@ -1,6 +1,6 @@
 # Versiones estables verificadas contra Google Maven y Maven Central el 25/09/2026.
 [versions]
-agp = "9.4.1"
+agp = "9.3.3"  # fijado: Android Studio actual soporta hasta AGP 9.3.0
 kotlin = "2.4.20"
 ksp = "2.3.12"
 
