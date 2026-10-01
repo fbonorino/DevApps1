@@ -4,7 +4,11 @@ App Android para hacer **inspecciones de campo guiadas por checklist**: por cada
 
 Trabajo Práctico Obligatorio de **Desarrollo de Aplicaciones I** (UADE).
 
-> **Estado actual:** Etapa 1, preentrega de análisis y diseño. El proyecto compila, pero todavía no tiene funcionalidad: la implementación arranca cuando se apruebe la preentrega.
+> **Estado actual:** Etapa 2, implementación en curso.
+>
+> - Listo: las 4 pantallas del flujo principal (historial, nueva inspección, ejecución y revisión) guardando en una base **Room** local. Los datos sobreviven al cerrar la app y todo funciona sin conexión.
+> - Por ahora las plantillas son de ejemplo y se cargan la primera vez que se abre la app.
+> - Pendiente: backend FastAPI, descarga de plantillas y sincronización (Retrofit + WorkManager), fotos con la cámara, detalle y compartir.
 
 ---
 
