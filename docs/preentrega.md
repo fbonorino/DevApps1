@@ -4,7 +4,7 @@
 **Instancia:** Etapa 1 — Preentrega de análisis y diseño
 **Equipo:** [COMPLETAR: integrantes]
 **Fecha de entrega:** [COMPLETAR]
-**Repositorio:** https://github.com/fbonorino/DevApps1
+**Repositorio:** https://github.com/fieldcheck-uade/FieldCheck
 **Figma:** [COMPLETAR: link al archivo]
 
 > Estructura: este documento sigue uno por uno los 17 entregables mínimos de la sección 5 de la consigna. La persistencia (punto 4.12 de la consigna, que no figura como entregable separado) se desarrolla dentro del punto 14.
@@ -309,11 +309,12 @@ Para cada decisión relevante se indica qué problema resuelve, en qué capa viv
 
 ## 16. Repositorio
 
-- **URL:** https://github.com/fbonorino/DevApps1 (privado; acceso para integrantes y docente)
+- **URL:** https://github.com/fieldcheck-uade/FieldCheck (público)
+- **Organización:** `fieldcheck-uade`, con todos los integrantes como *owners* en igualdad de condiciones.
 - **Integrantes con acceso:** [COMPLETAR] + docente de la cátedra.
 
 **Estrategia de trabajo**
-- `main` siempre compila y contiene solo trabajo revisado. No se commitea directo sobre `main` una vez iniciada la implementación.
+- `main` siempre compila y contiene solo trabajo revisado. Está protegida con un *ruleset* de GitHub: no admite push directo ni *force push*, y todo cambio necesita un pull request con al menos una aprobación.
 - Una rama por unidad de trabajo, nombrada por tipo y requisito: `feature/rf02-completar-items`, `fix/sync-duplicados`, `docs/diagramas`.
 - Todo cambio entra a `main` por pull request con al menos una revisión de otro integrante.
 - Los PR se integran con *merge commit* (no *squash*) para conservar la historia real de commits de cada integrante.
