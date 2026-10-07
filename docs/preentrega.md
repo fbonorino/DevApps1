@@ -5,7 +5,7 @@
 **Equipo:** Franco Bonorino, Mercedes Rodriguez, Nicolás Rodriguez, Nahuel Sanguineti
 **Fecha de entrega:** [COMPLETAR]
 **Repositorio:** https://github.com/fieldcheck-uade/FieldCheck
-**Figma:** [COMPLETAR: link al archivo]
+**Figma:** [FieldCheck — Mockups](https://www.figma.com/design/huvTo8nDgobJskL3ysZDSj/FieldCheck-%E2%80%94-Mockups--DevApps1-)
 
 > Estructura: este documento sigue uno por uno los 17 entregables mínimos de la sección 5 de la consigna. La persistencia (punto 4.12 de la consigna, que no figura como entregable separado) se desarrolla dentro del punto 14.
 
@@ -192,7 +192,7 @@ Cada requisito indica cómo se verifica.
 
 ## 11. Diseño en Figma
 
-**Link:** [COMPLETAR: link al archivo de Figma]
+**Link:** [FieldCheck — Mockups (Figma)](https://www.figma.com/design/huvTo8nDgobJskL3ysZDSj/FieldCheck-%E2%80%94-Mockups--DevApps1-)
 
 El diseño se trabajó en dos niveles, ambos exportados a [`docs/diseno/`](diseno/):
 
