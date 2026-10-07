@@ -2,7 +2,7 @@
 
 **Materia:** Desarrollo de Aplicaciones I — UADE (Facultad de Ingeniería y Ciencias Exactas)
 **Instancia:** Etapa 1 — Preentrega de análisis y diseño
-**Equipo:** [COMPLETAR: integrantes]
+**Equipo:** Franco Bonorino, Mercedes Rodriguez, Nicolás Rodriguez, Nahuel Sanguineti
 **Fecha de entrega:** [COMPLETAR]
 **Repositorio:** https://github.com/fieldcheck-uade/FieldCheck
 **Figma:** [COMPLETAR: link al archivo]
@@ -311,7 +311,7 @@ Para cada decisión relevante se indica qué problema resuelve, en qué capa viv
 
 - **URL:** https://github.com/fieldcheck-uade/FieldCheck (público)
 - **Organización:** `fieldcheck-uade`, con todos los integrantes como *owners* en igualdad de condiciones.
-- **Integrantes con acceso:** [COMPLETAR] + docente de la cátedra.
+- **Integrantes con acceso:** Franco Bonorino, Mercedes Rodriguez, Nicolás Rodriguez y Nahuel Sanguineti (owners de la organización).
 
 **Estrategia de trabajo**
 - `main` siempre compila y contiene solo trabajo revisado. Está protegida con un *ruleset* de GitHub: no admite push directo ni *force push*, y todo cambio necesita un pull request con al menos una aprobación.
@@ -334,10 +334,10 @@ Para cada decisión relevante se indica qué problema resuelve, en qué capa viv
 
 | Integrante | Rol principal | Responsabilidades | Áreas en las que participa |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| Franco Bonorino | Arquitectura y persistencia | Estructura MVVM + Clean Architecture, capa de dominio (modelos, interfaces, casos de uso), Room (entidades, DAOs, mappers) e inyección de dependencias (`AppContainer`). | Integración entre capas, revisión de pull requests. |
+| Mercedes Rodriguez | UI / UX | Diseño en Figma (pantallas, estados y componentes), sistema visual y accesibilidad (RNF05, RNF06), pantallas en Jetpack Compose. | Detalle de inspección y compartir resumen (RF04). |
+| Nicolás Rodriguez | Capacidades del dispositivo y testing | Cámara con `FileProvider`, ubicación (deseable), manejo de permisos y sus estados de rechazo; tests de casos de uso y ViewModels. | Pruebas manuales en modo avión (RNF01, RNF02). |
+| Nahuel Sanguineti | Sincronización y backend | API REST (FastAPI + SQLite), cliente Retrofit, sincronización con WorkManager, idempotencia y manejo de errores (RF03, RNF03, RNF04). | Topología de infraestructura, README técnico. |
 
 **Cambios en el equipo:** ninguno a la fecha.
 

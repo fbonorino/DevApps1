@@ -125,4 +125,7 @@ Justificación de cada una en `docs/preentrega.md`, punto 15.
 
 | Integrante | Rol principal |
 |---|---|
-| [COMPLETAR] | [COMPLETAR] |
+| Franco Bonorino | Arquitectura y persistencia |
+| Mercedes Rodriguez | UI / UX |
+| Nicolás Rodriguez | Capacidades del dispositivo y testing |
+| Nahuel Sanguineti | Sincronización y backend |
