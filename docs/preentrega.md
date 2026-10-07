@@ -2,10 +2,10 @@
 
 **Materia:** Desarrollo de Aplicaciones I — UADE (Facultad de Ingeniería y Ciencias Exactas)
 **Instancia:** Etapa 1 — Preentrega de análisis y diseño
-**Equipo:** [COMPLETAR: integrantes]
-**Fecha de entrega:** [COMPLETAR]
-**Repositorio:** https://github.com/fbonorino/DevApps1
-**Figma:** [COMPLETAR: link al archivo]
+**Equipo:** Franco Bonorino, Mercedes Rodriguez, Nicolás Rodriguez, Nahuel Sanguineti
+**Fecha de entrega:** 09/10/2026
+**Repositorio:** https://github.com/fieldcheck-uade/FieldCheck
+**Figma:** [FieldCheck — Mockups](https://www.figma.com/design/huvTo8nDgobJskL3ysZDSj/FieldCheck-%E2%80%94-Mockups--DevApps1-)
 
 > Estructura: este documento sigue uno por uno los 17 entregables mínimos de la sección 5 de la consigna. La persistencia (punto 4.12 de la consigna, que no figura como entregable separado) se desarrolla dentro del punto 14.
 
@@ -192,19 +192,58 @@ Cada requisito indica cómo se verifica.
 
 ## 11. Diseño en Figma
 
-**Link:** [COMPLETAR: link al archivo de Figma]
+**Link:** [FieldCheck — Mockups (Figma)](https://www.figma.com/design/huvTo8nDgobJskL3ysZDSj/FieldCheck-%E2%80%94-Mockups--DevApps1-)
 
-La especificación detallada de cada pantalla (componentes, jerarquía, acciones y estados) está en `docs/pantallas.md` y es la base para armar el Figma. Resumen de las pantallas del flujo principal:
+El diseño se trabajó en dos niveles, ambos exportados a [`docs/diseno/`](diseno/):
 
-| # | Pantalla | Objetivo | Estados que se diseñan |
+- **Wireframes** de baja fidelidad del flujo completo: [`wireframes.pdf`](diseno/wireframes.pdf).
+- **Mockups** de alta fidelidad sobre Material 3 (frame Android 360 × 800 dp), con los estados relevantes de cada pantalla y la hoja de componentes compartidos.
+
+La especificación detallada de cada pantalla (componentes, jerarquía, acciones, estados y microcopy) está en `docs/pantallas.md`.
+
+| # | Pantalla | Objetivo | Estados diseñados |
 |---|---|---|---|
-| P1 | Historial (inicio) | Ver inspecciones y su estado de sincronización; punto de entrada a crear una nueva. | Carga, contenido, vacío, error, offline. |
-| P2 | Nueva inspección | Elegir plantilla e ingresar el sitio. | Carga, contenido, contenido desactualizado, vacío sin conexión, error. |
-| P3 | Ejecución de inspección | Completar ítem por ítem con estado, nota y foto. | Carga, contenido, offline, "No cumple" sin evidencia, permiso de ubicación rechazado, errores de cámara. |
-| P4 | Revisión y finalización | Ver el resumen, detectar faltantes y finalizar. | Contenido, validación con faltantes. |
-| P5 | Detalle de inspección | Consultar una inspección y compartir su resumen. | Contenido, pendiente, sincronizada, error de sincronización. |
+| P1 | Historial (inicio) | Ver inspecciones y su estado de sincronización; punto de entrada a crear una nueva. | Carga, contenido, vacío, offline. |
+| P2 | Nueva inspección | Elegir plantilla e ingresar el sitio. | Contenido (hoja inferior), desactualizado sin conexión, vacío sin conexión. |
+| P3 | Ejecución de inspección | Completar ítem por ítem con estado, nota y foto. | "No cumple" sin evidencia, offline en modo oscuro. |
+| P4 | Revisión y finalización | Ver el resumen, detectar faltantes y finalizar. | Contenido completo, validación con faltantes. |
+| P5 | Detalle de inspección | Consultar una inspección y compartir su resumen. | Pendiente, sincronizada, error de sincronización. |
 
-**Criterios que guían el diseño:** una sola tarea por pantalla, acciones principales al alcance del pulgar, feedback inmediato en cada acción (guardado, foto adjunta, estado de sincronización), prevención de errores antes que mensajes de error (validación al finalizar con navegación directa al ítem faltante), y alto contraste para uso en exteriores.
+### Componentes compartidos
+
+<img src="diseno/componentes.png" width="560" alt="Componentes: SyncChip, ResultSelector y OfflineBanner">
+
+### P1 — Historial
+
+<img src="diseno/p1-historial-carga.png" width="180" alt="P1 carga"> <img src="diseno/p1-historial-contenido.png" width="180" alt="P1 contenido"> <img src="diseno/p1-historial-vacio.png" width="180" alt="P1 vacío"> <img src="diseno/p1-historial-offline.png" width="180" alt="P1 offline">
+
+*Carga · Contenido · Vacío · Offline*
+
+### P2 — Nueva inspección
+
+<img src="diseno/p2-nueva-inspeccion-hoja-inferior.png" width="180" alt="P2 hoja inferior"> <img src="diseno/p2-nueva-inspeccion-desactualizada.png" width="180" alt="P2 desactualizado sin conexión"> <img src="diseno/p2-nueva-inspeccion-vacio-sin-conexion.png" width="180" alt="P2 vacío sin conexión">
+
+*Hoja inferior para empezar · Plantillas desactualizadas sin conexión · Sin plantillas y sin conexión*
+
+### P3 — Ejecución de la inspección
+
+<img src="diseno/p3-ejecucion-no-cumple-sin-evidencia.png" width="180" alt="P3 no cumple sin evidencia"> <img src="diseno/p3-ejecucion-oscuro-sin-conexion.png" width="180" alt="P3 modo oscuro sin conexión">
+
+*"No cumple" sin evidencia · Modo oscuro sin conexión*
+
+### P4 — Revisión y finalización
+
+<img src="diseno/p4-revision-completa.png" width="180" alt="P4 contenido completo"> <img src="diseno/p4-revision-faltantes.png" width="180" alt="P4 validación con faltantes">
+
+*Contenido completo · Validación con faltantes*
+
+### P5 — Detalle de inspección
+
+<img src="diseno/p5-detalle-pendiente.png" width="180" alt="P5 pendiente"> <img src="diseno/p5-detalle-sincronizada.png" width="180" alt="P5 sincronizada"> <img src="diseno/p5-detalle-error.png" width="180" alt="P5 error de sincronización">
+
+*Pendiente de subir · Sincronizada · Error de sincronización*
+
+**Criterios que guían el diseño:** una sola tarea por pantalla, acciones principales al alcance del pulgar, feedback inmediato en cada acción (guardado, foto adjunta, estado de sincronización), prevención de errores antes que mensajes de error (validación al finalizar con navegación directa al ítem faltante), estados comunicados siempre con ícono + texto y no solo con color, y alto contraste para uso en exteriores.
 
 ---
 
@@ -309,14 +348,16 @@ Para cada decisión relevante se indica qué problema resuelve, en qué capa viv
 
 ## 16. Repositorio
 
-- **URL:** https://github.com/fbonorino/DevApps1 (privado; acceso para integrantes y docente)
-- **Integrantes con acceso:** [COMPLETAR] + docente de la cátedra.
+- **URL:** https://github.com/fieldcheck-uade/FieldCheck (público)
+- **Organización:** `fieldcheck-uade`, con todos los integrantes como *owners* en igualdad de condiciones.
+- **Integrantes con acceso:** Franco Bonorino, Mercedes Rodriguez, Nicolás Rodriguez y Nahuel Sanguineti (owners de la organización).
 
 **Estrategia de trabajo**
-- `main` siempre compila y contiene solo trabajo revisado. No se commitea directo sobre `main` una vez iniciada la implementación.
+- `main` siempre compila y contiene solo trabajo revisado. Está protegida con un *ruleset* de GitHub: no admite push directo ni *force push*, y todo cambio necesita un pull request con al menos una aprobación.
 - Una rama por unidad de trabajo, nombrada por tipo y requisito: `feature/rf02-completar-items`, `fix/sync-duplicados`, `docs/diagramas`.
 - Todo cambio entra a `main` por pull request con al menos una revisión de otro integrante.
 - Los PR se integran con *merge commit* (no *squash*) para conservar la historia real de commits de cada integrante.
+- `prototipo/arquitectura`: rama con un prototipo exploratorio que se hizo antes de la preentrega para validar la arquitectura propuesta (pantallas en Compose, capa de dominio y Room). No forma parte de esta entrega: `main` contiene solo la documentación de la Etapa 1, y el prototipo se retoma en la Etapa 2, ajustado según las correcciones.
 
 **Convención de commits** (en español, formato *Conventional Commits*)
 - `tipo(alcance): descripción en imperativo`, por ejemplo `feat(sync): encolar inspección al finalizar` o `test(domain): validar finalización con ítems incompletos`.
@@ -333,10 +374,10 @@ Para cada decisión relevante se indica qué problema resuelve, en qué capa viv
 
 | Integrante | Rol principal | Responsabilidades | Áreas en las que participa |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| Franco Bonorino | Arquitectura y persistencia | Estructura MVVM + Clean Architecture, capa de dominio (modelos, interfaces, casos de uso), Room (entidades, DAOs, mappers) e inyección de dependencias (`AppContainer`). | Integración entre capas, revisión de pull requests. |
+| Mercedes Rodriguez | UI / UX | Diseño en Figma (pantallas, estados y componentes), sistema visual y accesibilidad (RNF05, RNF06), pantallas en Jetpack Compose. | Detalle de inspección y compartir resumen (RF04). |
+| Nicolás Rodriguez | Capacidades del dispositivo y testing | Cámara con `FileProvider`, ubicación (deseable), manejo de permisos y sus estados de rechazo; tests de casos de uso y ViewModels. | Pruebas manuales en modo avión (RNF01, RNF02). |
+| Nahuel Sanguineti | Sincronización y backend | API REST (FastAPI + SQLite), cliente Retrofit, sincronización con WorkManager, idempotencia y manejo de errores (RF03, RNF03, RNF04). | Topología de infraestructura, README técnico. |
 
 **Cambios en el equipo:** ninguno a la fecha.
 

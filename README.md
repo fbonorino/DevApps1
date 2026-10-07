@@ -4,11 +4,9 @@ App Android para hacer **inspecciones de campo guiadas por checklist**: por cada
 
 Trabajo Práctico Obligatorio de **Desarrollo de Aplicaciones I** (UADE).
 
-> **Estado actual:** Etapa 2, implementación en curso.
+> **Estado actual:** Etapa 1, preentrega de análisis y diseño (entrega 09/10/2026). Toda la documentación está en [`docs/preentrega.md`](docs/preentrega.md).
 >
-> - Listo: las 4 pantallas del flujo principal (historial, nueva inspección, ejecución y revisión) guardando en una base **Room** local. Los datos sobreviven al cerrar la app y todo funciona sin conexión.
-> - Por ahora las plantillas son de ejemplo y se cargan la primera vez que se abre la app.
-> - Pendiente: backend FastAPI, descarga de plantillas y sincronización (Retrofit + WorkManager), fotos con la cámara, detalle y compartir.
+> La implementación comienza en la Etapa 2, una vez aprobada la preentrega. Un prototipo exploratorio que se hizo para validar la arquitectura propuesta se conserva en la rama [`prototipo/arquitectura`](https://github.com/fieldcheck-uade/FieldCheck/tree/prototipo/arquitectura).
 
 ---
 
@@ -24,33 +22,17 @@ Detalle completo en [`docs/preentrega.md`](docs/preentrega.md).
 |---|---|
 | [`docs/preentrega.md`](docs/preentrega.md) | Los 17 entregables de la preentrega: problema, usuario, requisitos, offline first, tecnologías, roles. |
 | [`docs/diagramas.md`](docs/diagramas.md) | Flujo de pantallas, arquitectura (datos e infraestructura), secuencia de sincronización y modelo de datos. |
+| [Figma](https://www.figma.com/design/huvTo8nDgobJskL3ysZDSj/FieldCheck-%E2%80%94-Mockups--DevApps1-) | Wireframes y mockups de alta fidelidad con los estados de cada pantalla (exportados en [`docs/diseno/`](docs/diseno/)). |
 | [`docs/pantallas.md`](docs/pantallas.md) | Especificación de pantallas y estados para Figma, y criterios de accesibilidad. |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Ramas, commits y pull requests. |
 
 ## Instrucciones de ejecución
 
-### App Android
-
-Requisitos: Android Studio (versión estable reciente), JDK 17 o superior, Android SDK con la plataforma 37.
-
-1. Clonar el repositorio (`git clone https://github.com/fbonorino/DevApps1.git`) y abrir la carpeta raíz en Android Studio.
-2. Dejar que Gradle sincronice (el wrapper descarga Gradle 9.8.0).
-3. Ejecutar la configuración `app` en un emulador o dispositivo con Android 8.0 (API 26) o superior.
-
-Desde la terminal:
-
-```bash
-./gradlew assembleDebug        # compila el APK de debug
-./gradlew testDebugUnitTest    # corre los tests unitarios
-```
-
-### Backend
-
-_Pendiente (etapa de implementación)._ Va a ser una API FastAPI + SQLite que se levanta con `docker compose up` desde `backend/`. Desde el emulador, la API se accede en `http://10.0.2.2:8000`.
+_Se completan en la Etapa 2._ La app se va a abrir y ejecutar desde Android Studio (Android 8.0, API 26, o superior) y el backend se va a levantar con `docker compose up` desde `backend/`.
 
 ## Arquitectura
 
-MVVM con principios de Clean Architecture, en un único módulo `app` organizado en paquetes por capa:
+MVVM con principios de Clean Architecture, en un único módulo `app` organizado en paquetes por capa (estructura prevista para la Etapa 2):
 
 ```
 UI (Compose) → ViewModel → Caso de uso → Repositorio (interfaz) → Room / Retrofit
@@ -77,11 +59,12 @@ app/src/main/java/ar/edu/uade/fieldcheck/
 └── di/                    AppContainer (inyección manual)
 backend/                   API FastAPI (etapa de implementación)
 docs/                      documentación de la preentrega
+    diseno/                wireframes, mockups y estados de pantalla
 ```
 
 Estrategia **offline first**: Room es la única fuente de verdad de la UI; las inspecciones se guardan localmente y WorkManager las sincroniza al haber red, de forma idempotente por `clientUuid`. Explicación completa en `docs/preentrega.md` (punto 14) y `docs/diagramas.md`.
 
-## Tecnologías
+## Tecnologías previstas
 
 | Área | Tecnología |
 |---|---|
@@ -125,4 +108,7 @@ Justificación de cada una en `docs/preentrega.md`, punto 15.
 
 | Integrante | Rol principal |
 |---|---|
-| [COMPLETAR] | [COMPLETAR] |
+| Franco Bonorino | Arquitectura y persistencia |
+| Mercedes Rodriguez | UI / UX |
+| Nicolás Rodriguez | Capacidades del dispositivo y testing |
+| Nahuel Sanguineti | Sincronización y backend |
