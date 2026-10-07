@@ -357,6 +357,7 @@ Para cada decisión relevante se indica qué problema resuelve, en qué capa viv
 - Una rama por unidad de trabajo, nombrada por tipo y requisito: `feature/rf02-completar-items`, `fix/sync-duplicados`, `docs/diagramas`.
 - Todo cambio entra a `main` por pull request con al menos una revisión de otro integrante.
 - Los PR se integran con *merge commit* (no *squash*) para conservar la historia real de commits de cada integrante.
+- `prototipo/arquitectura`: rama con un prototipo exploratorio que se hizo antes de la preentrega para validar la arquitectura propuesta (pantallas en Compose, capa de dominio y Room). No forma parte de esta entrega: `main` contiene solo la documentación de la Etapa 1, y el prototipo se retoma en la Etapa 2, ajustado según las correcciones.
 
 **Convención de commits** (en español, formato *Conventional Commits*)
 - `tipo(alcance): descripción en imperativo`, por ejemplo `feat(sync): encolar inspección al finalizar` o `test(domain): validar finalización con ítems incompletos`.
