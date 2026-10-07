@@ -194,17 +194,56 @@ Cada requisito indica cómo se verifica.
 
 **Link:** [COMPLETAR: link al archivo de Figma]
 
-La especificación detallada de cada pantalla (componentes, jerarquía, acciones y estados) está en `docs/pantallas.md` y es la base para armar el Figma. Resumen de las pantallas del flujo principal:
+El diseño se trabajó en dos niveles, ambos exportados a [`docs/diseno/`](diseno/):
 
-| # | Pantalla | Objetivo | Estados que se diseñan |
+- **Wireframes** de baja fidelidad del flujo completo: [`wireframes.pdf`](diseno/wireframes.pdf).
+- **Mockups** de alta fidelidad sobre Material 3 (frame Android 360 × 800 dp), con los estados relevantes de cada pantalla y la hoja de componentes compartidos.
+
+La especificación detallada de cada pantalla (componentes, jerarquía, acciones, estados y microcopy) está en `docs/pantallas.md`.
+
+| # | Pantalla | Objetivo | Estados diseñados |
 |---|---|---|---|
-| P1 | Historial (inicio) | Ver inspecciones y su estado de sincronización; punto de entrada a crear una nueva. | Carga, contenido, vacío, error, offline. |
-| P2 | Nueva inspección | Elegir plantilla e ingresar el sitio. | Carga, contenido, contenido desactualizado, vacío sin conexión, error. |
-| P3 | Ejecución de inspección | Completar ítem por ítem con estado, nota y foto. | Carga, contenido, offline, "No cumple" sin evidencia, permiso de ubicación rechazado, errores de cámara. |
-| P4 | Revisión y finalización | Ver el resumen, detectar faltantes y finalizar. | Contenido, validación con faltantes. |
-| P5 | Detalle de inspección | Consultar una inspección y compartir su resumen. | Contenido, pendiente, sincronizada, error de sincronización. |
+| P1 | Historial (inicio) | Ver inspecciones y su estado de sincronización; punto de entrada a crear una nueva. | Carga, contenido, vacío, offline. |
+| P2 | Nueva inspección | Elegir plantilla e ingresar el sitio. | Contenido (hoja inferior), desactualizado sin conexión, vacío sin conexión. |
+| P3 | Ejecución de inspección | Completar ítem por ítem con estado, nota y foto. | "No cumple" sin evidencia, offline en modo oscuro. |
+| P4 | Revisión y finalización | Ver el resumen, detectar faltantes y finalizar. | Contenido completo, validación con faltantes. |
+| P5 | Detalle de inspección | Consultar una inspección y compartir su resumen. | Pendiente, sincronizada, error de sincronización. |
 
-**Criterios que guían el diseño:** una sola tarea por pantalla, acciones principales al alcance del pulgar, feedback inmediato en cada acción (guardado, foto adjunta, estado de sincronización), prevención de errores antes que mensajes de error (validación al finalizar con navegación directa al ítem faltante), y alto contraste para uso en exteriores.
+### Componentes compartidos
+
+<img src="diseno/componentes.png" width="560" alt="Componentes: SyncChip, ResultSelector y OfflineBanner">
+
+### P1 — Historial
+
+<img src="diseno/p1-historial-carga.png" width="180" alt="P1 carga"> <img src="diseno/p1-historial-contenido.png" width="180" alt="P1 contenido"> <img src="diseno/p1-historial-vacio.png" width="180" alt="P1 vacío"> <img src="diseno/p1-historial-offline.png" width="180" alt="P1 offline">
+
+*Carga · Contenido · Vacío · Offline*
+
+### P2 — Nueva inspección
+
+<img src="diseno/p2-nueva-inspeccion-hoja-inferior.png" width="180" alt="P2 hoja inferior"> <img src="diseno/p2-nueva-inspeccion-desactualizada.png" width="180" alt="P2 desactualizado sin conexión"> <img src="diseno/p2-nueva-inspeccion-vacio-sin-conexion.png" width="180" alt="P2 vacío sin conexión">
+
+*Hoja inferior para empezar · Plantillas desactualizadas sin conexión · Sin plantillas y sin conexión*
+
+### P3 — Ejecución de la inspección
+
+<img src="diseno/p3-ejecucion-no-cumple-sin-evidencia.png" width="180" alt="P3 no cumple sin evidencia"> <img src="diseno/p3-ejecucion-oscuro-sin-conexion.png" width="180" alt="P3 modo oscuro sin conexión">
+
+*"No cumple" sin evidencia · Modo oscuro sin conexión*
+
+### P4 — Revisión y finalización
+
+<img src="diseno/p4-revision-completa.png" width="180" alt="P4 contenido completo"> <img src="diseno/p4-revision-faltantes.png" width="180" alt="P4 validación con faltantes">
+
+*Contenido completo · Validación con faltantes*
+
+### P5 — Detalle de inspección
+
+<img src="diseno/p5-detalle-pendiente.png" width="180" alt="P5 pendiente"> <img src="diseno/p5-detalle-sincronizada.png" width="180" alt="P5 sincronizada"> <img src="diseno/p5-detalle-error.png" width="180" alt="P5 error de sincronización">
+
+*Pendiente de subir · Sincronizada · Error de sincronización*
+
+**Criterios que guían el diseño:** una sola tarea por pantalla, acciones principales al alcance del pulgar, feedback inmediato en cada acción (guardado, foto adjunta, estado de sincronización), prevención de errores antes que mensajes de error (validación al finalizar con navegación directa al ítem faltante), estados comunicados siempre con ícono + texto y no solo con color, y alto contraste para uso en exteriores.
 
 ---
 
