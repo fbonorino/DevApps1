@@ -3,7 +3,7 @@
 **Materia:** Desarrollo de Aplicaciones I — UADE (Facultad de Ingeniería y Ciencias Exactas)
 **Instancia:** Etapa 1 — Preentrega de análisis y diseño
 **Equipo:** Franco Bonorino, Mercedes Rodriguez, Nicolás Rodriguez, Nahuel Sanguineti
-**Fecha de entrega:** [COMPLETAR]
+**Fecha de entrega:** 09/10/2026
 **Repositorio:** https://github.com/fieldcheck-uade/FieldCheck
 **Figma:** [FieldCheck — Mockups](https://www.figma.com/design/huvTo8nDgobJskL3ysZDSj/FieldCheck-%E2%80%94-Mockups--DevApps1-)
 
