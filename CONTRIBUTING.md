@@ -1,6 +1,6 @@
 # Cómo trabajamos
 
-La cátedra evalúa la evolución real del repositorio. La regla general es **commits chicos, frecuentes y de todos los integrantes**, no un volcado al final.
+Queremos que el historial refleje el trabajo real de cada integrante. La regla general es **commits chicos, frecuentes y de todos los integrantes**, no un volcado al final.
 
 ## Ramas
 
