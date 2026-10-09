@@ -1,6 +1,6 @@
 # FieldCheck — Diagramas
 
-Diagramas de la preentrega en Mermaid (se ven directamente en GitHub). Cada uno tiene una explicación pensada para defenderlo oralmente: qué muestra, cómo leerlo y qué preguntas puede disparar.
+Diagramas de la preentrega en Mermaid (se ven directamente en GitHub). Cada diagrama va acompañado de las decisiones de diseño que refleja.
 
 1. [Flujo de pantallas del caso de uso principal](#1-flujo-de-pantallas-del-caso-de-uso-principal)
 2. [Arquitectura: flujo de datos por capas](#2-arquitectura-flujo-de-datos-por-capas)
@@ -57,14 +57,14 @@ flowchart TD
     P3 -->|"Salir o interrupción"| F3(["Fin parcial: queda 'En curso',<br/>se retoma en el primer ítem sin completar"])
 ```
 
-**Cómo defenderlo**
+**Decisiones de diseño**
 
 - **Punto de entrada:** la app siempre abre en el Historial. Es la pantalla que responde "¿qué tengo pendiente?", que es lo primero que necesita el inspector.
 - **Operaciones críticas** (doble borde): crear la inspección, guardar cada respuesta, guardar la foto y finalizar. Todas escriben en Room, ninguna depende de la red. Por eso ninguna tiene una rama "sin conexión".
 - **Decisiones:** hay tres en el flujo del usuario. (1) Si hay plantillas guardadas; es el único punto donde la conectividad importa, y solo la primera vez. (2) La validación al finalizar, que aplica la regla de negocio del RF02. (3) El resultado de la sincronización, que ocurre en segundo plano (línea punteada) y el usuario no espera.
 - **Finales posibles:** inspección sincronizada, resumen compartido, o inspección en curso interrumpida. Este último no es un error: está diseñado así (RNF02 y RNF05).
 - **Prevención de errores:** la validación no muestra un mensaje genérico, lista los faltantes y cada uno lleva directo al ítem que hay que completar.
-- **Pregunta probable: "¿por qué la cámara no tiene una rama de permiso rechazado?"** Porque usamos la cámara del sistema mediante un intent (`TakePicture`), que no requiere el permiso `CAMERA`. El único permiso de la app es la ubicación (deseable). Si se rechaza, la foto se guarda igual sin coordenadas.
+- **Cámara sin rama de permiso rechazado:** se usa la cámara del sistema mediante un intent (`TakePicture`), que no requiere el permiso `CAMERA`. El único permiso de la app es la ubicación (deseable). Si se rechaza, la foto se guarda igual sin coordenadas.
 
 ---
 
@@ -110,7 +110,7 @@ flowchart LR
     RDS <--> API[("API REST")]
 ```
 
-**Cómo defenderlo**
+**Decisiones de diseño**
 
 - **Dirección de las dependencias:** Presentación y Datos dependen de Dominio. Dominio no depende de nadie: no importa nada de Android, Room ni Retrofit. La flecha punteada "implementa" es la inversión de dependencias: el dominio define el contrato (`InspectionRepository`) y la capa de datos lo cumple. Por eso los casos de uso se testean con un repositorio falso, sin emulador.
 - **Cómo circulan los datos, lectura:** Room emite un `Flow` → el repositorio lo mapea a modelos de dominio → el ViewModel lo transforma en `UiState` → Compose lo dibuja. Cuando cambia algo en Room, la pantalla se actualiza sola. La UI **nunca** lee de la red (línea gruesa: única fuente de verdad).
@@ -160,7 +160,7 @@ flowchart LR
     NETW <==> API
 ```
 
-**Cómo defenderlo**
+**Decisiones de diseño**
 
 - **Qué corre dónde:** en el dispositivo están la app, su base Room, las fotos en almacenamiento interno y WorkManager. En el servidor hay un solo contenedor con FastAPI, que guarda los datos en SQLite y las fotos en disco. Ambos van en volúmenes de Docker para que no se pierdan al recrear el contenedor.
 - **La red es el eslabón débil** (hexágono): el diseño asume que está cortada la mayor parte del tiempo en campo. Todo lo que está a la izquierda funciona sin ella.
@@ -168,7 +168,7 @@ flowchart LR
 - **La cámara es otra app:** la nuestra le presta un archivo propio mediante `FileProvider` (una URI temporal con permiso de escritura) y la cámara escribe ahí. La foto nunca pasa por la galería (RNF08).
 - **Entorno de desarrollo:** el servidor corre en la notebook con `docker compose up`. Desde el emulador, la notebook se ve como `10.0.2.2` (no `localhost`, que sería el propio emulador). En local se usa HTTP permitido solo para ese host en debug; un despliegue en la nube usaría HTTPS.
 - **Seguridad:** la API key viaja en un header y se configura fuera del código fuente (`local.properties` → `BuildConfig`). Es una protección mínima acorde a una v1 sin usuarios; lo reconocemos como limitación.
-- **Pregunta probable: "¿por qué SQLite en el servidor?"** Porque hay un solo escritor lógico por inspección y la carga es de demo. Postgres agregaría otro contenedor sin cambiar nada de lo que se evalúa en la app.
+- **SQLite en el servidor:** hay un solo escritor lógico por inspección y el volumen de datos de esta versión es bajo. Postgres agregaría otro contenedor sin aportar beneficios en esta etapa.
 
 ---
 
@@ -238,12 +238,12 @@ sequenceDiagram
     end
 ```
 
-**Cómo defenderlo**
+**Decisiones de diseño**
 
 - **Con conexión:** el mismo flujo, solo que el trabajo se ejecuta enseguida después de encolarse. No hay un camino especial "online": un solo camino es más fácil de probar.
 - **Pérdida de conexión:** finalizar nunca falla por falta de red, porque solo escribe en Room y encola. El usuario ve "Pendiente" al instante (pasos 1–10).
 - **Recuperación:** WorkManager despierta el worker cuando se cumple la restricción de red, aunque la app esté cerrada.
-- **El caso difícil (pasos 14–17):** el servidor guardó los datos pero el teléfono no recibió la respuesta. Sin idempotencia, el reintento crearía una inspección duplicada. Con el `clientUuid` generado en el dispositivo, el servidor reconoce que ya la tiene y actualiza. Esto responde "¿cómo se manejan los errores de sincronización?".
+- **El caso difícil (pasos 14–17):** el servidor guardó los datos pero el teléfono no recibió la respuesta. Sin idempotencia, el reintento crearía una inspección duplicada. Con el `clientUuid` generado en el dispositivo, el servidor reconoce que ya la tiene y actualiza.
 - **Orden: primero datos, después fotos.** Las fotos referencian a la inspección por su `clientUuid`, así que la inspección tiene que existir primero. Además, si se corta a mitad de las fotos, las que ya subieron quedan `SYNCED` y el reintento solo sube las que faltan.
 - **Transitorio vs. permanente:** un timeout o un 5xx se reintentan solos (`Result.retry()`); un 401 o un 422 no se arreglan reintentando, así que pasan a `FAILED` y el usuario decide.
 - **Trabajo único por inspección (`KEEP`):** si ya hay un trabajo encolado para esa inspección, no se crea otro. Evita dos envíos en paralelo de lo mismo.
@@ -304,7 +304,7 @@ erDiagram
     }
 ```
 
-**Cómo defenderlo**
+**Decisiones de diseño**
 
 - **Dos grupos de datos:** `TEMPLATE` y `TEMPLATE_ITEM` vienen de la API y son una caché que se puede reemplazar entera. `INSPECTION`, `ITEM_RESULT` y `EVIDENCE` los genera el usuario, solo existen en el dispositivo hasta que se sincronizan y nunca se pisan con datos del servidor.
 - **Copia del texto del ítem (`itemText`, `templateName`):** es una decisión deliberada de desnormalización. Una inspección es un registro histórico: si mañana la plantilla cambia, la inspección de hoy tiene que seguir mostrando lo que se revisó. Por eso `ITEM_RESULT` no depende de `TEMPLATE_ITEM` después de creada.
